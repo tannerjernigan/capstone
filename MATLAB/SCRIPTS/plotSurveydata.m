@@ -3,12 +3,11 @@
 clear; clc; close all;
 
 % Path to functions you use
-addpath C:\Users\tajer\OneDrive\Documents\EGN495\MATLAB\FUNCTIONS
-
+addpath /Users/jacobdoncsecz/Desktop/Classes/EGN495/capstone/MATLAB/FUNCTIONS
 %% Path to data
 
 % Path to data
-fdir = 'C:\Users\tajer\OneDrive\Documents\EGN495\DATA\USACE_Survey_Data\Carolina_Beach';
+fdir = '/Users/jacobdoncsecz/Desktop/Classes/EGN495/capstone/usace_survey_data';
 files = dir(fullfile(fdir,'*.csv'));
 
 %% Loading Data
