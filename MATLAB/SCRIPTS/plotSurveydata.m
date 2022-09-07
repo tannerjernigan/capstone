@@ -10,6 +10,7 @@ addpath C:\Users\tajer\OneDrive\Documents\EGN495\capstone\MATLAB\FUNCTIONS
 fdir = 'C:\Users\tajer\OneDrive\Documents\EGN495\capstone\usace_survey_data';
 files = dir(fullfile(fdir,'*.csv'));
 
+
 %% Loading Data
 
 survey = cell(length(files),1);
@@ -87,7 +88,62 @@ for i = 1:length(colorList)
 end
 legend('2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021');
 
+%% Making grid (rotating)
+
+coefficients = polyfit([2333590, 2338620], [98278.8, 96772.6], 1);
+theta = 17.5;
+
+eastings_origin = 2333590;
+northings_origin = 98278.8;
+
+eastings_local = survey{1}.x - eastings_origin;
+northings_local = survey{1}.y - northings_origin;
+
+% rotating data
+xy = [eastings_local northings_local]';
+rot_mat = [cosd(theta), -sind(theta); sind(theta), cosd(theta)];
+xy_rot = rot_mat * xy;
+
+%% plotting rotated grid
+
+figure(4);
+plot(xy_rot(1,:), xy_rot(2,:), '.k')
+xlabel('X Local');
+ylabel('Y Local');
+
 %% Making grid
+
+x = 0:2:5000;
+y = 0:100:17400;
+[xg, yg] = meshgrid(x, y);
+
+%% getting back to og points
+
+theta = -theta;
+xy = [xg(:) yg(:)]';
+rot_mat = [cosd(theta), -sind(theta); sind(theta), cosd(theta)];
+xygrid = rot_mat * xy;
+
+% reshaping grid
+Xqr = reshape(xygrid(1,:), size(xg,1), []);
+Yqr = reshape(xygrid(2,:), size(yg,1), []);
+
+% adding origin
+xg = Xqr + eastings_origin;
+yg = Yqr + northings_origin;
+
+clear Xqr Yqr zy rot_mat theta northings_origin eastings_origin eastings_local northings_local coefficients x y xygrid
+
+%% plotting to check
+
+figure(5);
+plot(xg, yg, 'r');
+hold on;
+plot(survey{1}.x, survey{1}.y,'.k'); box on; grid on;
+
+%% 
+
+
 
 
 
