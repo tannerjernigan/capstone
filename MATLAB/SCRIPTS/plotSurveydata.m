@@ -3,11 +3,11 @@
 clear; clc; close all;
 
 % Path to functions you use
-addpath /Users/jacobdoncsecz/Desktop/Classes/EGN495/capstone/MATLAB/FUNCTIONS
+addpath C:\Users\tajer\OneDrive\Documents\EGN495\capstone\MATLAB\FUNCTIONS
 %% Path to data
 
 % Path to data
-fdir = '/Users/jacobdoncsecz/Desktop/Classes/EGN495/capstone/usace_survey_data';
+fdir = 'C:\Users\tajer\OneDrive\Documents\EGN495\capstone\usace_survey_data';
 files = dir(fullfile(fdir,'*.csv'));
 
 %% Loading Data
@@ -18,7 +18,16 @@ for i = 1:length(files)
     ct = ct + 1;
     fname = files(i).name;
     fid = fopen(fullfile(fdir,fname)); % opening file
-    data = textscan(fid,'%s%s%f%s%s%f%f%f%f','headerlines',1,'delimiter',','); % reading .csv files
+    if fname == 'NHC2019_Carolina_Beach_Profiles.csv'
+        formatspec = '%s%s%s%f%s%f%f%f%f';
+    elseif fname == 'NHC2020_Carolina_Beach_Profiles.csv'
+        formatspec = '%s%s%s%f%s%f%f%f%f';
+    elseif fname == 'NHC2021_Carolina_Beach_Profiles.csv'
+        formatspec = '%s%s%s%f%s%f%f%f%f';
+    else
+        formatspec = '%s%s%f%s%s%f%f%f%f';
+    end
+    data = textscan(fid,formatspec,'headerlines',1,'delimiter',','); % reading .csv files
     fclose(fid); % closing file 
 
     s.location = data{1};
@@ -26,6 +35,12 @@ for i = 1:length(files)
     s.date = data{3};
     if fname == 'NHC2017_Carolina_Beach_Profiles.csv'
         s.time = datetime(data{4},'InputFormat','HH:mm:ss.ss');
+    elseif fname == 'NHC2019_Carolina_Beach_Profiles.csv'
+        s.time = datetime(data{5},'InputFormat','HH:mm:ss');
+    elseif fname == 'NHC2020_Carolina_Beach_Profiles.csv'
+        s.time = datetime(data{5},'InputFormat','HH:mm:ss');
+    elseif fname == 'NHC2021_Carolina_Beach_Profiles.csv'
+        s.time = datetime(data{5},'InputFormat','HH:mm:ss');
     else
         s.time = datetime(data{4},'InputFormat','HH:mm:ss');
     end
@@ -46,9 +61,9 @@ clear s data fid files ct ans fdir fname
 figure(1);
 scatter3(survey{1}.x, survey{1}.y, survey{1}.z, 15, survey{1}.z, 'filled');
 view([0,90]); c = colorbar(); ylabel(c, 'Elevation [m, NAVD88]'); colormap(viridis);
-xlabel('Eastings [m, State Plane?]');
-ylabel('Northings [m, State Plane?]');
-zlabel('Elevation [m, State NAVD88]');
+xlabel('Eastings [ft, State Plane, NAD83]');
+ylabel('Northings [ft, State Plane, NAD83]');
+zlabel('Elevation [ft, NAVD88]');
 set(gcf, 'Color', 'w');
 
 %% Geoscatter plot
@@ -57,6 +72,23 @@ a = repmat( 15, [1,length(survey{1}.lat)] );
 figure(2);
 geoscatter(survey{1}.lat, survey{1}.lon, a, survey{1}.z); geobasemap satellite;
 c = colorbar();
+
+%% Plotting all years on same geoscatter
+
+colorList = ['r'; 'b'; 'k'; 'y'; 'g'; 'c'; 'm'; 'w'];
+figure(3);
+geobasemap satellite;
+hold on;
+for i = 1:length(colorList)
+    a = repmat(15, [1,length(survey{i}.lat)]);
+    geoscatter(survey{i}.lat, survey{i}.lon, a, 'filled');
+    drawnow();
+    pause(0.5);
+end
+legend('2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021');
+
+%% Making grid
+
 
 
 
