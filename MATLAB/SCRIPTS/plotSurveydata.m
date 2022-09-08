@@ -113,7 +113,7 @@ ylabel('Y Local');
 
 %% Making grid
 
-x = 0:2:5000;
+x = 0:1:5000;
 y = 0:100:17400;
 [xg, yg] = meshgrid(x, y);
 
@@ -141,9 +141,36 @@ plot(xg, yg, 'r');
 hold on;
 plot(survey{1}.x, survey{1}.y,'.k'); box on; grid on;
 
-%% 
+%% interpolating to get surface
 
+for i = 1:length(survey)
+    survey{i}.zq = griddata(survey{i}.x,survey{i}.y,survey{i}.z,xg,yg);
+end
 
+%% plotting transect
+
+figure(7);
+box on; grid on;
+xlabel('Eastings [ft, State Plane, NAD83]');
+ylabel('Elevation [ft, NAVD88]');
+title('Transect Evolution since 2014');
+ylim([min(survey{7}.zq(40,:)) max(survey{7}.zq(40,:))]);
+set(gcf, 'color', 'w');
+hold on;
+for i = 1:length(survey)
+    plot(xg(40,:), survey{i}.zq(40,:), 'LineWidth', 2);
+    drawnow();
+    pause(0.5);
+end
+legend('2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021');
+
+%% surface evolution from 2014 to 2021
+
+zq_diff = survey{8}.zq - survey{1}.zq;
+
+figure(8);
+pcolor(xg, yg, zq_diff); shading flat;
+colormap viridis; colorbar();
 
 
 
