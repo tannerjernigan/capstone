@@ -69,7 +69,7 @@ set(gcf, 'Color', 'w');
 
 %% Geoscatter plot
 
-a = repmat( 15, [1,length(survey{1}.lat)] );
+a = repmat(15, [1,length(survey{1}.lat)] );
 figure(2);
 geoscatter(survey{1}.lat, survey{1}.lon, a, survey{1}.z); geobasemap satellite;
 c = colorbar();
@@ -87,6 +87,8 @@ for i = 1:length(colorList)
     pause(0.5);
 end
 legend('2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021');
+% geoscatter(yg_lat(40,:), xg_lon(40,:), a, 'r', 'filled')
+% WE PLOTTED ALONG 5TH TRANSECT FROM THE BOTTOM
 
 %% Making grid (rotating)
 
@@ -151,10 +153,11 @@ end
 
 figure(7);
 box on; grid on;
-xlabel('Eastings [ft, State Plane, NAD83]');
+xlabel('Cross-shore [ft]');
 ylabel('Elevation [ft, NAVD88]');
 title('Transect Evolution since 2014');
 ylim([min(survey{7}.zq(40,:)) max(survey{7}.zq(40,:))]);
+%xlim([2334740 2336300]);
 set(gcf, 'color', 'w');
 hold on;
 for i = 1:length(survey)
@@ -164,13 +167,45 @@ for i = 1:length(survey)
 end
 legend('2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021');
 
-%% surface evolution from 2014 to 2021
+%% plotting transect on map
 
-zq_diff = survey{8}.zq - survey{1}.zq;
+xg_lon = zeros(size(xg));
+yg_lat = zeros(size(yg));
+
+for i = 1:length(xg(:,1))
+    [xg_lon(i,:), yg_lat(i,:)] = sp_proj('North Carolina','inverse',xg(i,:),yg(i,:),'sf');
+end
 
 figure(8);
-pcolor(xg, yg, zq_diff); shading flat;
-colormap viridis; colorbar();
+geobasemap satellite;
+hold on;
+for i = 1:length(xg(:,1))
+    a = repmat(15, [1,length(xg(i,:))]);
+    geoscatter(yg_lat(i,:), xg_lon(i,:), a, 'b');
+end
+geoscatter(yg_lat(40,:), xg_lon(40,:), a, 'r', 'filled')
+
+%% surface evolution difference from 2014 to 2021
+
+zq_diff1 = survey{7}.zq - survey{6}.zq;
+zq_diff2 = survey{8}.zq - survey{7}.zq;
+
+figure(9);
+axis equal;
+colormap viridis;
+set(gcf, 'color', 'w');
+colorbar(); caxis([-14 8]);
+hold on;
+
+subplot(1,2,1)
+pcolor(xg, yg, zq_diff1); shading flat;
+set(gcf, 'color', 'w');
+
+subplot(1,2,2)
+pcolor(xg, yg, zq_diff2); shading flat;
+set(gcf, 'color', 'w');
+
+%% bs for jacob
 
 
 
