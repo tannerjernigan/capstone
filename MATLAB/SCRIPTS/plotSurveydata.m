@@ -157,7 +157,7 @@ xlabel('Cross-shore [ft]');
 ylabel('Elevation [ft, NAVD88]');
 title('Transect Evolution since 2014');
 ylim([min(survey{7}.zq(40,:)) max(survey{7}.zq(40,:))]);
-%xlim([2334740 2336300]);
+xlim([2334740 2336300]);
 set(gcf, 'color', 'w');
 hold on;
 for i = 1:length(survey)
@@ -191,19 +191,23 @@ zq_diff1 = survey{7}.zq - survey{6}.zq;
 zq_diff2 = survey{8}.zq - survey{7}.zq;
 
 figure(9);
-axis equal;
 colormap viridis;
 set(gcf, 'color', 'w');
-colorbar(); caxis([-14 8]);
 hold on;
 
 subplot(1,2,1)
 pcolor(xg, yg, zq_diff1); shading flat;
-set(gcf, 'color', 'w');
+axis equal;
+caxis([-5 5]);
+xlabel('Eastings [ft, State Plane, NAD83]');
+ylabel('Northings [ft, State Plane, NAD83]');
 
 subplot(1,2,2)
 pcolor(xg, yg, zq_diff2); shading flat;
-set(gcf, 'color', 'w');
+caxis([-5 5]);
+axis equal;
+xlabel('Eastings [ft, State Plane, NAD83]');
+
 
 %% bs for jacob
 
