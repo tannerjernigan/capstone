@@ -66,7 +66,7 @@ legend('Dune','Berm','Water Line','location','SE')
 %% T05
 T05.dune.num = [10,18,35,60,120,230];
 T05.dune.size = [2,1,0.5,0.25,0.125,0.063]; %sieve sizes in mm
-T05.dune.pmp = [99.98680158,99.38847338,67.42630884,4.88341399,0.017597888,0]; %percent mass passed
+T05.dune.pmp = [99.98679461,99.44097192,67.46192447,4.885993485,0.017607184,0]; %percent mass passed
 
 T05.berm.num = [10,18,35,60,120,230];
 T05.berm.size = [2,1,0.5,0.25,0.125,0.063]; %sieve sizes in mm
