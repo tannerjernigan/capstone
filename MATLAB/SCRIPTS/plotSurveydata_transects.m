@@ -1,5 +1,5 @@
 %%
-fdir = 'D:\CLASSES_2021_2022\Fall_2022\EGN_495\capstone\usace_survey_data';
+fdir = 'C:\Users\tajer\OneDrive\Documents\EGN495\DATA\USACE_Survey_Data\Carolina_Beach';
 files = dir(fullfile(fdir,'*.csv'));
 %% Loading Data
 

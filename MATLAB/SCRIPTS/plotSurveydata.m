@@ -7,7 +7,7 @@ addpath C:\Users\tajer\OneDrive\Documents\EGN495\capstone\MATLAB\FUNCTIONS
 %% Path to data
 
 % Path to data
-fdir = 'C:\Users\tajer\OneDrive\Documents\EGN495\capstone\usace_survey_data';
+fdir = 'C:\Users\tajer\OneDrive\Documents\EGN495\capstone\data\usace_survey_data';
 files = dir(fullfile(fdir,'*.csv'));
 
 
@@ -73,6 +73,7 @@ a = repmat(15, [1,length(survey{1}.lat)] );
 figure(2);
 geoscatter(survey{1}.lat, survey{1}.lon, a, survey{1}.z); geobasemap satellite;
 c = colorbar();
+
 
 %% Plotting all years on same geoscatter
 
@@ -155,13 +156,13 @@ figure(7);
 box on; grid on;
 xlabel('Cross-shore [ft]');
 ylabel('Elevation [ft, NAVD88]');
-title('Transect Evolution since 2014');
-ylim([min(survey{7}.zq(40,:)) max(survey{7}.zq(40,:))]);
+%title('Transect Evolution since 2014');
+%ylim([min(survey{7}.zq(175,:)) max(survey{7}.zq(175,:))]);
 %xlim([2334740 2336300]);
 set(gcf, 'color', 'w');
 hold on;
 for i = 1:length(survey)
-    plot(xg(40,:), survey{i}.zq(40,:), 'LineWidth', 2);
+    plot(xg(1,:), survey{i}.zq(1,:), 'LineWidth', 2);
     drawnow();
     pause(0.5);
 end
@@ -183,31 +184,51 @@ for i = 1:length(xg(:,1))
     a = repmat(15, [1,length(xg(i,:))]);
     geoscatter(yg_lat(i,:), xg_lon(i,:), a, 'b');
 end
-geoscatter(yg_lat(40,:), xg_lon(40,:), a, 'r', 'filled')
+geoscatter(yg_lat(40,:), xg_lon(40,:), a, 'r', 'filled') %t05
+geoscatter(yg_lat(175,:), xg_lon(175,:), a, 'r', 'filled') % t01
+geoscatter(yg_lat(1,:), xg_lon(1,:), a, 'r', 'filled') % t06
+geoscatter(yg_lat(80,:), xg_lon(80,:), a, 'r', 'filled') %t04
+geoscatter(yg_lat(122,:), xg_lon(122,:), a, 'r', 'filled') %t03
+geoscatter(yg_lat(149,:), xg_lon(149,:), a, 'r', 'filled') %t02
+
+%% plotting cross shore profiles
+
+figure(9);
+
+box on; grid on; hold on;
+
 
 %% surface evolution difference from 2014 to 2021
 
 zq_diff1 = survey{7}.zq - survey{6}.zq;
 zq_diff2 = survey{8}.zq - survey{7}.zq;
 
-figure(9);
-axis equal;
+figure(10);
 colormap viridis;
 set(gcf, 'color', 'w');
-colorbar(); caxis([-14 8]);
 hold on;
 
 subplot(1,2,1)
 pcolor(xg, yg, zq_diff1); shading flat;
-set(gcf, 'color', 'w');
+axis equal;
+caxis([-5 5]);
+xlabel('Eastings [ft, State Plane, NAD83]');
+ylabel('Northings [ft, State Plane, NAD83]');
 
 subplot(1,2,2)
 pcolor(xg, yg, zq_diff2); shading flat;
-set(gcf, 'color', 'w');
+caxis([-5 5]);
+axis equal;
+xlabel('Eastings [ft, State Plane, NAD83]');
+
 
 %% bs for jacob
 
+xyz(:,2) = yg(:);
+xyz(:,3) = xg(:);
+xyz(:,4) = survey{8}.zq(:);
 
+xyz(:,1) = 1:length(xg(:));
 
 
 
