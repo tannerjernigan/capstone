@@ -138,28 +138,28 @@ geoscatter(yg_lat(40,:), xg_lon(40,:), a, 'r', 'filled')
 
 %% cs profile
 
-% figure(6);
-% box on; grid on;
-% xlabel('Cross-shore [ft]');
-% ylabel('Elevation [ft, NAVD88]');
-% title('Transect Elevation Change');
-% ylim([min(survey{1}.zq(40,:)) max(survey{1}.zq(40,:))]);
-% % xlim([2334740 2336300]);
-% set(gcf, 'color', 'w');
-% hold on;
-% 
-% plot(xg(40,:), surf2022(1:10:710), 'LineWidth', 2);
-% 
-% 
-% 
-% plot(xg(40,:), survey{1}.zq(40,:), 'LineWidth', 2);
-% legend('2022', '2022 Surveyed');
-% 
+figure(6);
+box on; grid on;
+xlabel('Cross-shore [ft]');
+ylabel('Elevation [ft, NAVD88]');
+title('Transect Elevation Change');
+ylim([min(survey{1}.zq(40,:)) max(survey{1}.zq(40,:))]);
+% xlim([2334740 2336300]);
+set(gcf, 'color', 'w');
+hold on;
+
+plot(xg(40,:), surf2022(1:10:710), 'LineWidth', 2);
+
+
+
+plot(xg(40,:), survey{1}.zq(40,:), 'LineWidth', 2);
+legend('2022', '2022 Surveyed');
+
 
 
 %% 
 
-figure(6);
+figure(7);
 colormap viridis;
 set(gcf, 'color', 'w');
 hold on; box on; grid on;

@@ -116,8 +116,8 @@ ylabel('Y Local');
 
 %% Making grid
 
-x = 0:1:5000;
-y = 0:100:17400;
+x = 0:10:5000;
+y = 0:500:17400;
 [xg, yg] = meshgrid(x, y);
 
 %% getting back to og points
