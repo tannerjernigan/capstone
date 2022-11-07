@@ -132,21 +132,24 @@ legend('2021 USACE', '2022 JANT Engineering', 'Location','southeast')
 
 %% Cross-shore profile
 
-ind1 = (24478:24560);
-ind2 = (147:169);
+ind1 = (6175:6357);
+ind2 = (20:46);
 
 cs_usace = survey{8}.x(ind1) - survey{8}.x(ind1(1));
-cs_jant = survey_JANT{1}.x(ind2) - survey_JANT{1}.x(ind2(1));
+%cs_jant = survey_JANT{1}.x(ind2) - survey_JANT{1}.x(ind2(1));
 
 figure(3);
-plot(cs_usace, survey{8}.z(ind1), 'r', 'LineWidth', 2);
+plot(survey{8}.DBL(ind1), survey{8}.z(ind1), 'b', 'LineWidth', 2);
 box on; grid on;
 hold on;
-xlim([cs_usace(1) cs_usace(end)]);
-plot(cs_jant, survey_JANT{1}.z(ind2), 'b', 'LineWidth', 2);
-xlabel('Cross-shore Distance [ft]'); ylabel('Elevation [ft, NAVD88]');
-legend('2021 USACE', '2022 JANT Engineering')
+xlim([0 631.2]); ylim([-15 15]);
+% xticks([0 25 50 75 100 125 150 175 200 225]);
+% yticks([0 2.5 5 7.5 10 12.5 15]);
+%plot(cs_jant, survey_JANT{1}.z(ind2), 'b', 'LineWidth', 2);
+xlabel('Distance from Baseline [ft]'); ylabel('Elevation [ft, NAVD88]');
+legend('2021 USACE')
 set(gcf, 'Color', 'w');
+fontsize(16);
 
 %% trying to interpolate
 % 
