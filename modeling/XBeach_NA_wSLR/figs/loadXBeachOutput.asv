@@ -1,0 +1,113 @@
+%% EGN 495 - Load and Plot XBeach Output
+% Carolina Beach, NC
+% No Action - with 50-year SLR
+%
+% Ashley Holsclaw
+% November 6, 2022
+%%
+clear; clc;
+%% Load XBeach Output from NetCDF File
+% x = ncread('xboutput.nc','globalx');
+% y = ncread('xboutput.nc','globaly');
+% zb = ncread('xboutput.nc','zb');
+% zs = ncread('xboutput.nc','zs');
+% H = ncread('xboutput.nc','H');
+% % H_mean = ncread('xboutput.nc','H_mean');
+% t = ncread('xboutput.nc','globaltime');
+%% Load XBeach Output
+G = wlgrid('read','grid_D3D.grd');
+z = wldep('read','bed.dep',G);
+z = z(1:end-1, 1:end-1);
+
+fdir = 'D:\CLASSES_2021_2022\Fall_2022\EGN_495\XBeach';
+fn = 'xboutput.nc';
+
+x = ncread(fn,'globalx');
+y = ncread(fn,'globaly');
+t = ncread(fn,'globaltime');
+
+% ctheta = ncread(fn,'ctheta');
+% thet = ncread(fn,'thet');
+% thetamean = ncread(fn,'thetamean');
+
+zb = ncread(fn,'zb');
+% zb_mean = ncread(fn,'zb_mean');
+H = ncread(fn,'H');
+% Hmean = ncread(fn,'H_mean');
+% dzbdt = ncread(fn,'dzbdt');
+% Subg = ncread(fn,'Subg');
+% Susg = ncread(fn,'Susg');
+% Sutot = Subg + Susg;
+% Svbg = ncread(fn,'Svbg');
+% Svsg = ncread(fn,'Svsg');
+% Svtot = Svbg + Svsg;
+sedero = ncread(fn,'sedero');
+u = ncread(fn,'u');
+v = ncread(fn,'v');
+D = ncread(fn,'D');
+E = ncread(fn,'E');
+D = ncread(fn,'D');
+
+
+%% 2D Bathymetric Map
+figure;
+for i = 1:size(zb,3)
+    h = pcolor(x,y,zb(:,:,i));
+    colormap(parula)
+    shading interp
+    set(h,'edgecolor','none')
+    clim([-5 1])
+    c = colorbar;
+    c.Label.String = 'Elevation [m]';
+    xlabel('Easting [UTM]')
+    ylabel('Northing [UTM]')
+    title_text = sprintf('Bathymetry at time = %5.2f s', (i-1)*60);
+    title(title_text)
+    
+    drawnow
+    frame = getframe(1);
+    im = frame2im(frame);
+    [imind,cm] = rgb2ind(im,256);
+end
+%% 2D Wave Height Map
+figure;
+for i = 1:size(zb,3)
+    h = pcolor(x,y,H(:,:,i));
+    colormap(parula)
+    shading interp
+    set(h,'edgecolor','none')
+    clim([0 4])
+    c = colorbar;
+    c.Label.String = 'Wave Height [m]';
+    title('Significant Wave Height')
+    xlabel('Easting [UTM]')
+    ylabel('Northing [UTM]')
+    title_text = sprintf('Wave Height at time = %5.2f s', (i-1)*60);
+    title(title_text)
+    
+    drawnow
+    frame = getframe(1);
+    im = frame2im(frame);
+    [imind,cm] = rgb2ind(im,256);
+end
+%% cross-shore transect of sig wave height through center of domain
+figure;
+for i = 1:15:size(zb,3)
+    plot(x(:,round(size(x,2)/2)),H(:,round(size(H,2)/2),i))
+    xlim([x(end,round(size(x,2)/2)) x(1,round(size(x,2)/2))])
+    xlabel('Easting [UTM]')
+    ylabel('H [m]')
+    grid on
+    hold on
+    if i == size(zb,3)
+        legend('0 s','900 s','1800 s','2700 s','3600 s')
+    end
+
+%     title_text = sprintf('Wave Height at time = %5.2f s', (i-1)*60/4);
+%     title(title_text)
+    
+    drawnow
+    frame = getframe(1);
+    im = frame2im(frame);
+    [imind,cm] = rgb2ind(im,256);
+end

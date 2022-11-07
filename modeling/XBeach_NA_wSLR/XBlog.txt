@@ -1,0 +1,620 @@
+  **********************************************************
+                     Welcome to XBeach
+ 
+              version 1.23.5526 XBeachX release
+               date09-11-2018 11:14:26
+     URL:http://svn.oss.deltares.nl/repos/xbeach/trunk/
+  **********************************************************
+ 
+  Simulation started: YYYYMMDD    hh:mm:ss     time zone (UTC)
+                      20221105  11:30:28     -0400
+ 
+  General Input Module
+  Reading input parameters:
+   XBeach reading fromparams.txt
+  --------------------------------
+  Backward compatibility:
+                    instat =jons_table
+  --------------------------------
+  Physical processes:
+                 wavemodel =surfbeat
+                    cyclic =0 (no record found, default value used)
+                     swave =1 (no record found, default value used)
+                single_dir =0 (no record found, default value used)
+                     lwave =1 (no record found, default value used)
+                      flow =1 (no record found, default value used)
+                  sedtrans =1 (no record found, default value used)
+                morphology =1 (no record found, default value used)
+               avalanching =1 (no record found, default value used)
+                    gwflow =0 (no record found, default value used)
+                     ships =0 (no record found, default value used)
+                vegetation =0 (no record found, default value used)
+                  setbathy =0 (no record found, default value used)
+                 viscosity =1 (no record found, default value used)
+                 advection =1 (no record found, default value used)
+                      wind =1 (no record found, default value used)
+  --------------------------------
+  Grid parameters:
+                  gridform =xbeach
+                      xori =.0000
+                      yori =.0000
+                      alfa =.0000
+                        nx =169
+                        ny =54
+                    posdwn =.0000
+                   depfile =bed.dep
+                     vardx =1
+                        dx =-1.0000 (no record found, default value used)
+                        dy =-1.0000 (no record found, default value used)
+                     xfile =x.grd
+                     yfile =y.grd
+                        nz =1 (no record found, default value used)
+                  thetamin =-90.0000
+                  thetamax =90.0000
+                 thetanaut =1
+                    dtheta =10.0000
+  --------------------------------
+  Model time parameters:
+                       CFL =.7000 (no record found, default value used)
+                     dtset =.0000 (no record found, default value used)
+                     tstop =3600.0000
+                  maxdtfac =50.0000 (no record found, default value used)
+  --------------------------------
+  Physical constants:
+                       rho =1025.0000 (no record found, default value used)
+                         g =9.8100 (no record found, default value used)
+                depthscale =1.0000 (no record found, default value used)
+  --------------------------------
+  Initial conditions:
+                zsinitfile = None specified
+  --------------------------------
+  Wave boundary condition parameters:
+                   wbctype =jonstable
+                    bcfile =jonswap.txt
+                     taper =100.0000 (no record found, default value used)
+                      nmax =.8000 (no record found, default value used)
+               lateralwave =neumann (no record found, default value used)
+  --------------------------------
+  Wave-spectrum boundary condition parameters:
+                    random =1 (no record found, default value used)
+                   fcutoff =.0000 (no record found, default value used)
+                   trepfac =.0100 (no record found, default value used)
+                   sprdthr =.0800 (no record found, default value used)
+                Tm01switch =0 (no record found, default value used)
+              nspectrumloc =1 (no record found, default value used)
+  --------------------------------
+  Flow boundary condition parameters:
+                     front =abs_2d
+                      left =neumann (no record found, default value used)
+                     right =neumann (no record found, default value used)
+                      back =abs_2d
+                       ARC =1 (no record found, default value used)
+                     order =2.0000 (no record found, default value used)
+                  highcomp =0 (no record found, default value used)
+                  freewave =0 (no record found, default value used)
+                      epsi =-1.0000 (no record found, default value used)
+                  tidetype =velocity (no record found, default value used)
+  --------------------------------
+  Tide boundary conditions:
+                   tideloc =2
+                paulrevere =land (no record found, default value used)
+                   zs0file =tide.txt
+  --------------------------------
+  Discharge boundary conditions:
+            disch_loc_file = None specified
+     disch_timeseries_file = None specified
+                ndischarge =0 (no record found, default value used)
+               ntdischarge =0 (no record found, default value used)
+                      beta =.1000 (no record found, default value used)
+  --------------------------------
+  Wave breaking parameters:
+                     break =roelvink2 (no record found, default value used)
+                     gamma =.5500 (no record found, default value used)
+                    gammax =2.0000 (no record found, default value used)
+                     alpha =1.0000 (no record found, default value used)
+                         n =10.0000 (no record found, default value used)
+                     delta =.0000 (no record found, default value used)
+                        fw =.0000 (no record found, default value used)
+                    fwfile = None specified
+                  fwcutoff =1000.0000 (no record found, default value used)
+              breakerdelay =1.0000 (no record found, default value used)
+  --------------------------------
+  Roller parameters:
+                    roller =1 (no record found, default value used)
+                       rfb =0 (no record found, default value used)
+  --------------------------------
+  Wave-current interaction parameters:
+                       wci =0 (no record found, default value used)
+                      hwci =.1000 (no record found, default value used)
+                   hwcimax =100.0000 (no record found, default value used)
+                      cats =4.0000 (no record found, default value used)
+  --------------------------------
+  Flow parameters:
+               bedfriction =manning
+               bedfricfile = None specified
+               bedfriccoef =.0200 (no record found, default value used)
+                     droot =.5000 (no record found, default value used)
+                     dstem =.5000 (no record found, default value used)
+                     maxcf =.0400 (no record found, default value used)
+                       nuh =.1000 (no record found, default value used)
+                    nuhfac =1.0000 (no record found, default value used)
+                      smag =1 (no record found, default value used)
+  --------------------------------
+  Coriolis force parameters:
+                    wearth =.0417 (no record found, default value used)
+                       lat =.0000 (no record found, default value used)
+  --------------------------------
+  Wind parameters:
+                      rhoa =1.2500 (no record found, default value used)
+                        Cd =.0020 (no record found, default value used)
+                  windfile = None specified
+                     windv =.0000 (no record found, default value used)
+                    windth =270.0000 (no record found, default value used)
+  --------------------------------
+  Sediment transport parameters:
+                      form =vanthiel_vanrijn (no record found, default value use
+ d)
+                  waveform =vanthiel (no record found, default value used)
+                       sws =1 (no record found, default value used)
+                       lws =1 (no record found, default value used)
+                     BRfac =1.0000 (no record found, default value used)
+                     facua =.1000 (no record found, default value used)
+                     facSk =.1000 (no record found, default value used)
+                     facAs =.1000 (no record found, default value used)
+                     Tbfac =1.0000 (no record found, default value used)
+                      turb =bore_averaged (no record found, default value used)
+                   turbadv =none (no record found, default value used)
+                       sus =1 (no record found, default value used)
+                       bed =1 (no record found, default value used)
+                      bulk =0 (no record found, default value used)
+                     facsl =.1500 (no record found, default value used)
+                        z0 =.0060 (no record found, default value used)
+                      smax =-1.0000 (no record found, default value used)
+               bdslpeffmag =roelvink_total (no record found, default value used)
+               bdslpeffini =none (no record found, default value used)
+               bdslpeffdir =none (no record found, default value used)
+               reposeangle =30.0000 (no record found, default value used)
+                     tsfac =.1000 (no record found, default value used)
+                     Tsmin =.5000 (no record found, default value used)
+                     facDc =1.0000 (no record found, default value used)
+                       lwt =0 (no record found, default value used)
+                     betad =1.0000 (no record found, default value used)
+                fallvelred =0 (no record found, default value used)
+                 dilatancy =0 (no record found, default value used)
+  --------------------------------
+  Bed composition parameters:
+                       ngd =1 (no record found, default value used)
+                        nd =3 (no record found, default value used)
+                       por =.4000 (no record found, default value used)
+   D50 =.0002 (no record found, default value used)
+   D90 =.0003 (no record found, default value used)
+                      rhos =2650.0000 (no record found, default value used)
+                       dzg =.1000 (no record found, default value used)
+                      dzg1 =.1000 (no record found, default value used)
+                      dzg2 =.1000 (no record found, default value used)
+                      dzg3 =.1000 (no record found, default value used)
+   sedcal =1.0000 (no record found, default value used)
+   ucrcal =1.0000 (no record found, default value used)
+  --------------------------------
+  Morphology parameters:
+                    morfac =1.0000
+                 morfacopt =1 (no record found, default value used)
+                  morstart =.0000 (no record found, default value used)
+                   morstop =3600.0000 (no record found, default value used)
+                    wetslp =.3000 (no record found, default value used)
+                    dryslp =1.0000 (no record found, default value used)
+                   hswitch =.1000 (no record found, default value used)
+                     dzmax =.0500 (no record found, default value used)
+                    struct =0 (no record found, default value used)
+  --------------------------------
+  Output variables:
+                   timings =1 (no record found, default value used)
+                    tunits = None specified
+                    tstart =.0000
+                      tint =1.0000 (no record found, default value used)
+                  tsglobal = None specified
+                     tintg =60.0000
+                  tspoints = None specified
+                     tintp =1.0000 (no record found, default value used)
+                    tsmean = None specified
+                     tintm =3600.0000
+                nglobalvar =11
+   nglobalvar: Will generate global output for variable:zb
+   nglobalvar: Will generate global output for variable:zs
+   nglobalvar: Will generate global output for variable:H
+   nglobalvar: Will generate global output for variable:u
+   nglobalvar: Will generate global output for variable:v
+   nglobalvar: Will generate global output for variable:sedero
+   nglobalvar: Will generate global output for variable:hh
+   nglobalvar: Will generate global output for variable:iwl
+   nglobalvar: Will generate global output for variable:D
+   nglobalvar: Will generate global output for variable:E
+   nglobalvar: Will generate global output for variable:vmag
+                   npoints =0 (no record found, default value used)
+                  nrugauge =0 (no record found, default value used)
+                 npointvar =0 (no record found, default value used)
+                 nrugdepth =1 (no record found, default value used)
+   rugdepth =.0000 (no record found, default value used)
+                  nmeanvar =0
+              outputformat =netcdf
+           outputprecision =double (no record found, default value used)
+                ncfilename = None specified
+  netcdf output to:xboutput.nc
+              remdryoutput =1 (no record found, default value used)
+  --------------------------------
+  Output projection:
+                projection = None specified
+                    rotate =1 (no record found, default value used)
+  --------------------------------
+  Wave numerics parameters:
+                    scheme =warmbeam (no record found, default value used)
+                    snells =0 (no record found, default value used)
+  --------------------------------
+  Flow numerics parameters:
+                       eps =.0050 (no record found, default value used)
+                    eps_sd =.5000 (no record found, default value used)
+                      umin =.0000 (no record found, default value used)
+                      hmin =.2000 (no record found, default value used)
+                  secorder =0 (no record found, default value used)
+  --------------------------------
+  Sediment transport numerics parameters:
+                  thetanum =1.0000 (no record found, default value used)
+                      cmax =.1000 (no record found, default value used)
+  --------------------------------
+  Bed update numerics parameters:
+                   frac_dz =.7000 (no record found, default value used)
+                    nd_var =2 (no record found, default value used)
+                     split =1.0100 (no record found, default value used)
+                     merge =.0100 (no record found, default value used)
+  --------------------------------
+  Finished reading input parameters
+  --------------------------------
+  ------------------------------------
+  Building Grid and Bathymetry
+  ------------------------------------
+  Initializing .....
+   readtide: reading tide time series fromtide.txt ...
+  --------------------------------
+  Initializing spectral wave boundary conditions
+  --------------------------------
+  NetCDF outputformat
+   Creating netcdf variable:zb
+   Creating netcdf variable:zs
+   Creating netcdf variable:H
+   Creating netcdf variable:u
+   Creating netcdf variable:v
+   Creating netcdf variable:sedero
+   Creating netcdf variable:hh
+   Creating netcdf variable:iwl
+   Creating netcdf variable:D
+   Creating netcdf variable:E
+   Creating netcdf variable:vmag
+  Writing file definition.
+  Setting up boundary conditions
+  --------------------------------
+  Calculating spectral wave boundary conditions
+  --------------------------------
+  Reading spectrum at location1
+   waveparams: Reading from table:jonswap.txt ...
+  Interpreting spectrum at location1
+  Values calculated from interpolated spectrum:
+  Hm0       =5.82 m
+  Trep      =10.25 s
+  Mean dir  =109.49 degN
+  Overall Trep from all spectra calculated:10.25 s
+  Calculating Fourier components
+  5.1% done
+  10.1% done
+  15.2% done
+  20.3% done
+  25.0% done
+  30.1% done
+  35.1% done
+  40.2% done
+  45.3% done
+  50.0% done
+  55.1% done
+  60.1% done
+  65.2% done
+  70.3% done
+  75.0% done
+  80.1% done
+  85.1% done
+  90.2% done
+  95.3% done
+  100.0% done
+  Large amounts of energy (87.7%) fall outside computational domain at the offsh
+ ore boundary
+  Check specification of input wave angles and wave directional grid
+  Calculating short wave time series for theta bin1 of18
+  Calculating short wave time series for theta bin2 of18
+  Calculating short wave time series for theta bin3 of18
+  Calculating short wave time series for theta bin4 of18
+  Calculating short wave time series for theta bin5 of18
+  Calculating short wave time series for theta bin6 of18
+  Calculating short wave time series for theta bin7 of18
+  Calculating short wave time series for theta bin8 of18
+  Calculating short wave time series for theta bin9 of18
+  Calculating short wave time series for theta bin10 of18
+  Calculating short wave time series for theta bin11 of18
+  Calculating short wave time series for theta bin12 of18
+  Calculating short wave time series for theta bin13 of18
+  Calculating short wave time series for theta bin14 of18
+  Calculating short wave time series for theta bin15 of18
+  Calculating short wave time series for theta bin16 of18
+  Calculating short wave time series for theta bin17 of18
+  Calculating short wave time series for theta bin18 of18
+ Calculating wave energy envelope at boundary.
+  5.5% done
+  10.9% done
+  16.4% done
+  20.0% done
+  25.5% done
+  30.9% done
+  36.4% done
+  40.0% done
+  45.5% done
+  50.9% done
+  56.4% done
+  60.0% done
+  65.5% done
+  70.9% done
+  76.4% done
+  80.0% done
+  85.5% done
+  90.9% done
+  96.4% done
+  100.0% done
+  Wave bin1 contains64.78% of total energy
+  Wave bin2 contains23.62% of total energy
+  Wave bin3 contains11.60% of total energy
+  Wave bin4 contains.00% of total energy
+  Wave bin5 contains.00% of total energy
+  Wave bin6 contains.00% of total energy
+  Wave bin7 contains.00% of total energy
+  Wave bin8 contains.00% of total energy
+  Wave bin9 contains.00% of total energy
+  Wave bin10 contains.00% of total energy
+  Wave bin11 contains.00% of total energy
+  Wave bin12 contains.00% of total energy
+  Wave bin13 contains.00% of total energy
+  Wave bin14 contains.00% of total energy
+  Wave bin15 contains.00% of total energy
+  Wave bin16 contains.00% of total energy
+  Wave bin17 contains.00% of total energy
+  Wave bin18 contains.00% of total energy
+   Writing wave energy toE_series00001.bcf ...
+  file done
+  Calculating primary wave interaction
+  5.1% done
+  10.2% done
+  15.3% done
+  20.0% done
+  25.1% done
+  30.2% done
+  35.3% done
+  40.0% done
+  45.1% done
+  50.2% done
+  55.3% done
+  60.0% done
+  65.1% done
+  70.2% done
+  75.3% done
+  80.0% done
+  85.1% done
+  90.2% done
+  95.3% done
+  100.0% done
+  Calculating flux at boundary
+  5.5% done
+  10.9% done
+  16.4% done
+  20.0% done
+  25.5% done
+  30.9% done
+  36.4% done
+  40.0% done
+  45.5% done
+  50.9% done
+  56.4% done
+  60.0% done
+  65.5% done
+  70.9% done
+  76.4% done
+  80.0% done
+  85.5% done
+  90.9% done
+  96.4% done
+  100.0% done
+   Writing long wave mass flux toq_series00001.bcf ...
+  file done
+  --------------------------------
+  Spectral wave boundary conditions complete
+  --------------------------------
+  Boundary conditions complete, starting computation
+  Simulation  0.2 percent complete. Average dt  0.606 seconds
+  Time remaining 49 minutes
+  Simulation  1.5 percent complete. Average dt  0.600 seconds
+  Time remaining  8 minutes and 29 seconds
+  Simulation  2.8 percent complete. Average dt  0.595 seconds
+  Time remaining  7 minutes and 32 seconds
+  Simulation  4.1 percent complete. Average dt  0.590 seconds
+  Time remaining  7 minutes and 11 seconds
+  Simulation  5.2 percent complete. Average dt  0.588 seconds
+  Time remaining  7 minutes and 19 seconds
+  Simulation  6.4 percent complete. Average dt  0.583 seconds
+  Time remaining  7 minutes and  4 seconds
+  Simulation  7.5 percent complete. Average dt  0.581 seconds
+  Time remaining  7 minutes and  1 seconds
+  Simulation  8.8 percent complete. Average dt  0.581 seconds
+  Time remaining  6 minutes and 36 seconds
+  Simulation  9.5 percent complete. Average dt  0.577 seconds
+  Time remaining  8 minutes and 44 seconds
+  Simulation 10.3 percent complete. Average dt  0.577 seconds
+  Time remaining  8 minutes and 22 seconds
+  Simulation 11.1 percent complete. Average dt  0.571 seconds
+  Time remaining  8 minutes and 11 seconds
+  Simulation 12.0 percent complete. Average dt  0.570 seconds
+  Time remaining  8 minutes and  5 seconds
+  Simulation 12.9 percent complete. Average dt  0.571 seconds
+  Time remaining  7 minutes and 43 seconds
+  Simulation 13.8 percent complete. Average dt  0.559 seconds
+  Time remaining  7 minutes and 42 seconds
+  Simulation 14.8 percent complete. Average dt  0.566 seconds
+  Time remaining  6 minutes and 53 seconds
+  Simulation 16.0 percent complete. Average dt  0.563 seconds
+  Time remaining  6 minutes and 42 seconds
+  Simulation 17.1 percent complete. Average dt  0.560 seconds
+  Time remaining  6 minutes and 31 seconds
+  Simulation 18.2 percent complete. Average dt  0.561 seconds
+  Time remaining  6 minutes and 32 seconds
+  Simulation 18.9 percent complete. Average dt  0.561 seconds
+  Time remaining  7 minutes and 57 seconds
+  Simulation 19.8 percent complete. Average dt  0.553 seconds
+  Time remaining  7 minutes and 17 seconds
+  Simulation 20.8 percent complete. Average dt  0.555 seconds
+  Time remaining  6 minutes and 43 seconds
+  Simulation 21.8 percent complete. Average dt  0.556 seconds
+  Time remaining  6 minutes and 30 seconds
+  Simulation 23.0 percent complete. Average dt  0.556 seconds
+  Time remaining  5 minutes and 59 seconds
+  Simulation 24.0 percent complete. Average dt  0.556 seconds
+  Time remaining  6 minutes and 10 seconds
+  Simulation 25.1 percent complete. Average dt  0.556 seconds
+  Time remaining  6 minutes and 13 seconds
+  Simulation 26.2 percent complete. Average dt  0.556 seconds
+  Time remaining  5 minutes and 53 seconds
+  Simulation 27.2 percent complete. Average dt  0.558 seconds
+  Time remaining  5 minutes and 59 seconds
+  Simulation 28.4 percent complete. Average dt  0.554 seconds
+  Time remaining  5 minutes and 32 seconds
+  Simulation 29.5 percent complete. Average dt  0.556 seconds
+  Time remaining  5 minutes and 27 seconds
+  Simulation 30.7 percent complete. Average dt  0.556 seconds
+  Time remaining  5 minutes and 20 seconds
+  Simulation 31.9 percent complete. Average dt  0.556 seconds
+  Time remaining  5 minutes and 11 seconds
+  Simulation 33.1 percent complete. Average dt  0.555 seconds
+  Time remaining  4 minutes and 59 seconds
+  Simulation 34.3 percent complete. Average dt  0.555 seconds
+  Time remaining  4 minutes and 56 seconds
+  Simulation 35.5 percent complete. Average dt  0.546 seconds
+  Time remaining  4 minutes and 54 seconds
+  Simulation 36.7 percent complete. Average dt  0.550 seconds
+  Time remaining  4 minutes and 45 seconds
+  Simulation 37.9 percent complete. Average dt  0.550 seconds
+  Time remaining  4 minutes and 38 seconds
+  Simulation 39.0 percent complete. Average dt  0.549 seconds
+  Time remaining  4 minutes and 40 seconds
+  Simulation 40.2 percent complete. Average dt  0.544 seconds
+  Time remaining  4 minutes and 30 seconds
+  Simulation 41.4 percent complete. Average dt  0.540 seconds
+  Time remaining  4 minutes and 24 seconds
+  Simulation 42.6 percent complete. Average dt  0.542 seconds
+  Time remaining  4 minutes and 20 seconds
+  Simulation 43.7 percent complete. Average dt  0.538 seconds
+  Time remaining  4 minutes and 17 seconds
+  Simulation 44.9 percent complete. Average dt  0.536 seconds
+  Time remaining  4 minutes and 10 seconds
+  Simulation 46.0 percent complete. Average dt  0.534 seconds
+  Time remaining  4 minutes and  3 seconds
+  Simulation 47.2 percent complete. Average dt  0.536 seconds
+  Time remaining  3 minutes and 57 seconds
+  Simulation 48.4 percent complete. Average dt  0.529 seconds
+  Time remaining  3 minutes and 53 seconds
+  Simulation 49.5 percent complete. Average dt  0.532 seconds
+  Time remaining  3 minutes and 47 seconds
+  Simulation 50.7 percent complete. Average dt  0.532 seconds
+  Time remaining  3 minutes and 41 seconds
+  Simulation 51.9 percent complete. Average dt  0.536 seconds
+  Time remaining  3 minutes and 37 seconds
+  Simulation 53.0 percent complete. Average dt  0.541 seconds
+  Time remaining  3 minutes and 37 seconds
+  Simulation 54.0 percent complete. Average dt  0.544 seconds
+  Time remaining  3 minutes and 35 seconds
+  Simulation 55.2 percent complete. Average dt  0.547 seconds
+  Time remaining  3 minutes and 23 seconds
+  Simulation 56.4 percent complete. Average dt  0.556 seconds
+  Time remaining  3 minutes and 11 seconds
+  Simulation 57.6 percent complete. Average dt  0.545 seconds
+  Time remaining  3 minutes and  6 seconds
+  Simulation 58.7 percent complete. Average dt  0.541 seconds
+  Time remaining  3 minutes and  7 seconds
+  Simulation 59.9 percent complete. Average dt  0.545 seconds
+  Time remaining  2 minutes and 58 seconds
+  Simulation 61.0 percent complete. Average dt  0.545 seconds
+  Time remaining  3 minutes and  4 seconds
+  Simulation 62.1 percent complete. Average dt  0.545 seconds
+  Time remaining  2 minutes and 50 seconds
+  Simulation 63.1 percent complete. Average dt  0.545 seconds
+  Time remaining  2 minutes and 56 seconds
+  Simulation 64.3 percent complete. Average dt  0.545 seconds
+  Time remaining  2 minutes and 42 seconds
+  Simulation 65.3 percent complete. Average dt  0.545 seconds
+  Time remaining  2 minutes and 46 seconds
+  Simulation 66.3 percent complete. Average dt  0.545 seconds
+  Time remaining  2 minutes and 42 seconds
+  Simulation 67.3 percent complete. Average dt  0.549 seconds
+  Time remaining  2 minutes and 35 seconds
+  Simulation 68.4 percent complete. Average dt  0.551 seconds
+  Time remaining  2 minutes and 27 seconds
+  Simulation 69.6 percent complete. Average dt  0.556 seconds
+  Time remaining  2 minutes and 14 seconds
+  Simulation 70.8 percent complete. Average dt  0.559 seconds
+  Time remaining  2 minutes and  9 seconds
+  Simulation 72.0 percent complete. Average dt  0.562 seconds
+  Time remaining  2 minutes and  3 seconds
+  Simulation 73.2 percent complete. Average dt  0.559 seconds
+  Time remaining  1 minutes and 57 seconds
+  Simulation 74.4 percent complete. Average dt  0.565 seconds
+  Time remaining  1 minutes and 52 seconds
+  Simulation 75.6 percent complete. Average dt  0.569 seconds
+  Time remaining  1 minutes and 47 seconds
+  Simulation 76.9 percent complete. Average dt  0.572 seconds
+  Time remaining  1 minutes and 41 seconds
+  Simulation 78.1 percent complete. Average dt  0.571 seconds
+  Time remaining  1 minutes and 35 seconds
+  Simulation 79.3 percent complete. Average dt  0.576 seconds
+  Time remaining  1 minutes and 29 seconds
+  Simulation 80.5 percent complete. Average dt  0.577 seconds
+  Time remaining  1 minutes and 25 seconds
+  Simulation 81.6 percent complete. Average dt  0.577 seconds
+  Time remaining  1 minutes and 26 seconds
+  Simulation 82.8 percent complete. Average dt  0.574 seconds
+  Time remaining  1 minutes and 17 seconds
+  Simulation 83.9 percent complete. Average dt  0.570 seconds
+  Time remaining  1 minutes and 12 seconds
+  Simulation 85.0 percent complete. Average dt  0.571 seconds
+  Time remaining  1 minutes and  8 seconds
+  Simulation 86.2 percent complete. Average dt  0.572 seconds
+  Time remaining  1 minutes and  1 seconds
+  Simulation 87.3 percent complete. Average dt  0.574 seconds
+  Time remaining 57 seconds
+  Simulation 88.4 percent complete. Average dt  0.568 seconds
+  Time remaining 54 seconds
+  Simulation 89.5 percent complete. Average dt  0.572 seconds
+  Time remaining 48 seconds
+  Simulation 90.6 percent complete. Average dt  0.572 seconds
+  Time remaining 43 seconds
+  Simulation 91.7 percent complete. Average dt  0.570 seconds
+  Time remaining 38 seconds
+  Simulation 92.9 percent complete. Average dt  0.577 seconds
+  Time remaining 31 seconds
+  Simulation 94.0 percent complete. Average dt  0.577 seconds
+  Time remaining 27 seconds
+  Simulation 95.2 percent complete. Average dt  0.577 seconds
+  Time remaining 22 seconds
+  Simulation 96.3 percent complete. Average dt  0.577 seconds
+  Time remaining 17 seconds
+  Simulation 97.4 percent complete. Average dt  0.581 seconds
+  Time remaining 12 seconds
+  Simulation 98.6 percent complete. Average dt  0.583 seconds
+  Time remaining  6 seconds
+  Simulation 99.8 percent complete. Average dt  0.583 seconds
+  Time remaining  1 seconds
+   Duration   :   443.343750000000      seconds
+   Timesteps  :        6429
+   Average dt :  0.559962669155390      seconds
+   Unit speed :  7.375399572292328E-006 seconds/1
+  End of program xbeach

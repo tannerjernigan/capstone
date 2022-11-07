@@ -1,0 +1,4 @@
+ Warning: Specification of instat using parameter 'wbctype'
+  Large amounts of energy (87.7%) fall outside computational domain at the offsh
+ ore boundary
+  Check specification of input wave angles and wave directional grid
